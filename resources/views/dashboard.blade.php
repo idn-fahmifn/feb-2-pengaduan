@@ -21,7 +21,7 @@
                                 <i data-feather="clock"></i>
                             </div>
                             <div class="text-center">
-                                <h1 class="text-4xl font-semibold">20</h1>
+                                <h1 class="text-4xl font-semibold">{{ $pending }}</h1>
                                 <span class="text-center font-semibold">Pending</span>
                             </div>
                         </div>

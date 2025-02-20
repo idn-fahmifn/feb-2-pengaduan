@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TanggapanController;
@@ -12,9 +13,7 @@ Route::get('/', function () {
 
 // Routing bagian admin.
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     // Route untuk Tanggapan
     Route::get('tanggapan', [TanggapanController::class, 'index'])->name('tanggapan.index');

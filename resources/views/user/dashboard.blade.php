@@ -11,7 +11,7 @@
                 <!-- Card Header -->
                 <div class="relative">
                     <video autoplay muted loop class="w-full h-56 object-cover rounded-xl">
-                        <source src="{{asset('asset/videoidn.mp4')}}" type="video/mp4">
+                        <source src="{{asset('video/videoidn.mp4')}}" type="video/mp4">
                     </video>
                     <div class="relative -mt-16 grid sm:grid-cols-2 md:grid-cols-4 gap-4 p-4">
                         <!-- Card 1 -->
