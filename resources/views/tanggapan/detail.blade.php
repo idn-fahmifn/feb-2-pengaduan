@@ -48,6 +48,7 @@
             </div>
         </div>
 
+        @if ($data->status == 'pending' || $data->status == 'proses')
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-4">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
@@ -86,6 +87,11 @@
             </div>
         </div>
 
+        @endif
+
+
+
+
         @if (!$tanggapan)
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
@@ -96,23 +102,23 @@
         </div>
         @else
         <!-- area Progress -->
-            @foreach ($tanggapan as $item)
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
-                    <div class="flex justify-between items-center">
-                        <h4 class="text-lg font-semibold dark:text-white">
-                            {{ $item->judul_tanggapan }}
-                        </h4>
-                        <span class="text-sm font-md dark:text-white">
-                            {{ $item->tanggal_tanggapan->diffForHumans() }}
-                        </span>
-                    </div>
-                    <div class="py-6 dark:text-white ">
-                        {{ $item->isi_tanggapan }}
-                    </div>
+        @foreach ($tanggapan as $item)
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-lg font-semibold dark:text-white">
+                        {{ $item->judul_tanggapan }}
+                    </h4>
+                    <span class="text-sm font-md dark:text-white">
+                        {{ $item->tanggal_tanggapan->diffForHumans() }}
+                    </span>
+                </div>
+                <div class="py-6 dark:text-white ">
+                    {{ $item->isi_tanggapan }}
                 </div>
             </div>
-            @endforeach
+        </div>
+        @endforeach
         @endif
     </div>
 </x-app-layout>
