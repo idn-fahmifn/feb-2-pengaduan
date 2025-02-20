@@ -36,13 +36,13 @@
                         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                             @foreach ($data as $item)
                             <tr>
-                                <td class="px-3 py-6"> <a href="" class="font-semibold text-xs text-blue-500"> {{ $item->judul_pengaduan }} </a> </td>
+                                <td class="px-3 py-6"> <a class="text-sm font-semibold dark:text-blue-500 " href="{{ route('pengaduan.detail', $item->id) }}">{{ $item->judul_pengaduan }}</a> </td>
                                 <td class="px-3 py-6">
                                     @if ($item->status == 'pending')
                                     <span class="bg-gray-300 py-2 px-6 font-semibold text-xs rounded-md">Masih Pending</span>
-                                    @elseif($item->status == 'diproses')
+                                    @elseif($item->status == 'proses')
                                     <span class="bg-green-300 py-2 px-6 font-semibold text-xs rounded-md">Sedang Diproses</span>
-                                    @elseif($item->status == 'diproses')
+                                    @elseif($item->status == 'selesai')
                                     <span class="bg-green-700 py-2 px-6 font-semibold text-xs rounded-md">Selesai</span>
                                     @else
                                     <span class="bg-red-700 py-2 px-6 font-semibold text-xs rounded-md">Pengaduan Ditolak</span>
