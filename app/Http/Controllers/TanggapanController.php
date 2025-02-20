@@ -18,7 +18,8 @@ class TanggapanController extends Controller
     public function detail($id)
     {
         $data = Pengaduan::findOrFail($id); //mengambil nilai tanggapannya.
-        return view('tanggapan.detail', compact('data'));
+        $tanggapan = Tanggapan::where('id_pengaduan', $id)->get()->all();
+        return view('tanggapan.detail', compact('data', 'tanggapan'));
     }
 
     public function store(Request $request)
@@ -40,6 +41,7 @@ class TanggapanController extends Controller
         $data->save(); //menyimpan status
 
         return back()->with('success', 'Tanggapan berhasil dibuat');
+
     }
 
 }
