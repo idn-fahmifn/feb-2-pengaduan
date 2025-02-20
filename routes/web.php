@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TanggapanController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // Bagian Tanggapan
+    Route::get('tanggapan', [TanggapanController::class, 'index'])->name('tanggapan.index');
+    Route::get('tanggapan/detail/{param}', [TanggapanController::class, 'detail'])->name('tanggapan.detail');
+
+
+
 });
 
 // Routing bagian user.
@@ -42,5 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 require __DIR__ . '/auth.php';
