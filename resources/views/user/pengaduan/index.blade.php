@@ -15,7 +15,7 @@
                         <span class="font-md text-sm dark:text-white">Daftar laporan saya. Klik pada judul untuk selengkapnya.</span>
                     </div>
                     <div>
-                        <a href="#" class="bg-red-700 px-6 py-2 text-white hover:bg-red-500 rounded-md">Tambah Kategori</a>
+                        <a href="{{ route('pengaduan.create') }}" class="bg-red-700 px-6 py-2 text-white hover:bg-red-500 rounded-md">Buat Pengaduan</a>
                     </div>
                 </div>
                 <div class="overflow-x-auto">
@@ -34,7 +34,26 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                            
+                            @foreach ($data as $item)
+                            <tr>
+                                <td class="px-3 py-6"> <a href="" class="font-semibold text-xs text-blue-500"> {{ $item->judul_pengaduan }} </a> </td>
+                                <td class="px-3 py-6">
+                                    @if ($item->status == 'pending')
+                                    <span class="bg-gray-300 py-2 px-6 font-semibold text-xs rounded-md">Masih Pending</span>
+                                    @elseif($item->status == 'diproses')
+                                    <span class="bg-green-300 py-2 px-6 font-semibold text-xs rounded-md">Sedang Diproses</span>
+                                    @elseif($item->status == 'diproses')
+                                    <span class="bg-green-700 py-2 px-6 font-semibold text-xs rounded-md">Selesai</span>
+                                    @else
+                                    <span class="bg-red-700 py-2 px-6 font-semibold text-xs rounded-md">Pengaduan Ditolak</span>
+                                    @endif
+                                </td>
+                                <td class="px-3 py-6 text-white">
+                                    {{ $item->tanggal_pengaduan->diffForHumans() }}
+                                </td>
+                            </tr>
+
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

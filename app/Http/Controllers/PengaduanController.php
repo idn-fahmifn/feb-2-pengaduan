@@ -11,7 +11,8 @@ class PengaduanController extends Controller
 {
     public function index()
     {
-        return view('user.pengaduan.index');
+        $data = Pengaduan::where('id_user', Auth::user()->id)->get()->all(); //mengambil nilai pengaduan yang sesuai dengan id yang login
+        return view('user.pengaduan.index', compact('data'));
     }
 
     public function create()
