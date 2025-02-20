@@ -55,7 +55,32 @@
                         Buat Tanggapan
                     </h4>
                 </div>
-                
+                <form method="post" action="#" class="mt-6 space-y-6" enctype="multipart/form-data">
+                    @csrf
+                    <div>
+                        <x-input-label for="status" :value="__('Ubah status')" />
+                        <select name="status" id="status" class="mt-1 block w-full bg-transparent dark:text-white rounded-md">
+                            <option value="{{ $data->status }}">{{ $data->status }}</option>
+                            <option value="diproses">diproses</option>
+                            <option value="selesai">selesai</option>
+                            <option value="ditolak">ditolak</option>
+                        </select>
+                        <x-input-error class="mt-2" :messages="$errors->get('status')" />
+                    </div>
+
+                    <div>
+                        <x-input-label for="tanggapan" :value="__('Judul Tanggapan')" />
+                        <x-text-input id="tanggapan" name="tanggapan" type="text" class="mt-1 block w-full" required />
+                        <x-input-error class="mt-2" :messages="$errors->get('tanggapan')" />
+                    </div>
+                    
+                    <div>
+                        <x-input-label for="isi_tanggapan" :value="__('Isi Laporan')" />
+                        <textarea name="isi_tanggapan" class="mt-1 block w-full bg-transparent rounded-md dark:text-white"></textarea>
+                        <x-input-error class="mt-2" :messages="$errors->get('isi_tanggapan')" />
+                    </div>
+                    <button type="submit" class="bg-red-700 hover:bg-red-500 text-white px-6 py-2 rounded-md">Buat Laporan</button>
+                </form>
             </div>
         </div>
 
