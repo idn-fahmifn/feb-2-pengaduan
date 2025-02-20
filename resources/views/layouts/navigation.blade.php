@@ -17,9 +17,15 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('tanggapan.index')" :active="request()->routeIs('tanggapan.index')">
+                            {{ __('Semua Pengaduan') }}
+                        </x-nav-link>
                     @else
                         <x-nav-link :href="route('dashboard.user')" :active="request()->routeIs('dashboard.user')">
                             {{ __('Dashboard') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('pengaduan.index')" :active="request()->routeIs('pengaduan.index')">
+                            {{ __('pengaduan Saya') }}
                         </x-nav-link>
                     @endif
                 </div>
