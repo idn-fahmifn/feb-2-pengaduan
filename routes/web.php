@@ -16,12 +16,10 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    // Bagian Tanggapan
+    // Route untuk Tanggapan
     Route::get('tanggapan', [TanggapanController::class, 'index'])->name('tanggapan.index');
     Route::get('tanggapan/detail/{param}', [TanggapanController::class, 'detail'])->name('tanggapan.detail');
-
-
-
+    Route::post('tanggapan', [TanggapanController::class, 'store'])->name('tanggapan.store');
 });
 
 // Routing bagian user.
@@ -32,7 +30,6 @@ Route::prefix('user')->middleware('auth')->group(function(){
     Route::get('/dashboard', function () {
         return view('user.dashboard');
     })->name('dashboard.user');
-
 
     // route untuk index laporan saya
     Route::get('pengaduan-saya', [PengaduanController::class, 'index'])->name('pengaduan.index');
