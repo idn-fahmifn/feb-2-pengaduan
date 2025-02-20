@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('id_user')->constrained('users')->cascadeOnDelete();
             $table->string('judul_pengaduan');
             $table->datetime('tanggal_pengaduan');
-            $table->enum('status', ['pending', 'proses', 'selesai', 'ditolak']);
+            $table->enum('status', ['pending', 'proses', 'selesai', 'ditolak'])->default('pending');
             $table->text('isi');
             $table->string('gambar');
             $table->timestamps();
