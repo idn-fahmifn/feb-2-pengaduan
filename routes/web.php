@@ -30,6 +30,8 @@ Route::prefix('user')->middleware('auth')->group(function(){
     Route::get('pengaduan-saya', [PengaduanController::class, 'index'])->name('pengaduan.index');
     Route::get('buat-pengaduan', [PengaduanController::class, 'create'])->name('pengaduan.create');
     Route::post('pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
+    Route::get('pengaduan/detail/{param}', [PengaduanController::class, 'detail'])->name('pengaduan.detail');
+
 
 });
 

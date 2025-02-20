@@ -45,6 +45,12 @@ class PengaduanController extends Controller
 
         Pengaduan::create($input);
         return redirect()->route('pengaduan.index')->with('success', 'Data berhasil dibuat');
-
     }
+
+    public function detail($id)
+    {
+        $data = Pengaduan::findOrFail($id);
+        return view('user.pengaduan.detail', compact('data'));
+    }
+
 }
